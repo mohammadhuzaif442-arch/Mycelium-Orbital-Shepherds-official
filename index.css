@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NASA-Grade Space Mission Control Design System */
+
+@layer base {
+  :root {
+    /* Deep Space Background Colors */
+    --background: 222 47% 7%;  /* #0a0e27 */
+    --background-deep: 225 61% 4%;  /* #030712 */
+    --foreground: 0 0% 98%;
+    
+    /* Glass-morphism Base */
+    --glass-bg: 222 47% 7% / 0.4;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-blur: 12px;
+    
+    /* Accent Colors - Mission Critical */
+    --cyan-electric: 184 100% 50%;  /* #00f3ff */
+    --purple-plasma: 271 81% 61%;  /* #a855f7 */
+    --green-bio: 160 84% 39%;  /* #10b981 */
+    --gold-accent: 43 96% 56%;  /* #fbbf24 */
+    
+    /* Status Colors */
+    --status-success: 160 84% 39%;  /* Bio-green */
+    --status-warning: 43 96% 56%;  /* Gold */
+    --status-danger: 0 84% 60%;  /* Red alert */
+    --status-info: 184 100% 50%;  /* Cyan */
+    
+    /* UI Surface Colors */
+    --card: 222 47% 7% / 0.6;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 222 47% 7%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 184 100% 50%;  /* Electric cyan */
+    --primary-foreground: 222 47% 7%;
+    
+    --secondary: 271 81% 61%;  /* Plasma purple */
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 222 20% 20%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 160 84% 39%;  /* Bio-green */
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.1;
+    --ring: 184 100% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* Glow Effects */
+    --glow-cyan: 0 0 20px hsl(184 100% 50% / 0.5);
+    --glow-purple: 0 0 20px hsl(271 81% 61% / 0.5);
+    --glow-green: 0 0 20px hsl(160 84% 39% / 0.5);
+    --glow-gold: 0 0 20px hsl(43 96% 56% / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background-deep text-foreground overflow-hidden;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  /* Glass-morphism Effects */
+  .glass {
+    background: rgba(10, 14, 39, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-strong {
+    background: rgba(10, 14, 39, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Glow Effects */
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  }
+  
+  .glow-green {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  }
+  
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+  }
+  
+  /* Pulse Animations */
+  .pulse-cyan {
+    animation: pulse-cyan 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .pulse-green {
+    animation: pulse-green 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .pulse-purple {
+    animation: pulse-purple 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Starfield Background */
+  .starfield {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, white, transparent),
+      radial-gradient(2px 2px at 60px 70px, white, transparent),
+      radial-gradient(1px 1px at 50px 50px, white, transparent),
+      radial-gradient(1px 1px at 130px 80px, white, transparent),
+      radial-gradient(2px 2px at 90px 10px, white, transparent);
+    background-size: 200px 200px;
+    animation: twinkle 20s linear infinite;
+  }
+  
+  /* Holographic Effect */
+  .holographic {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 243, 255, 0.1) 0%,
+      rgba(168, 85, 247, 0.1) 50%,
+      rgba(16, 185, 129, 0.1) 100%
+    );
+    animation: holographic-shift 10s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-cyan {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 243, 255, 0.8);
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
+  }
+}
+
+@keyframes pulse-purple {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
+  }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes holographic-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
